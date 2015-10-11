@@ -1,8 +1,6 @@
 <?php
 namespace Lorenum\SimpleRouter;
 
-use Exception;
-
 class Map{
     const METHOD_GET = "GET";
     const METHOD_POST = "POST";
@@ -32,9 +30,6 @@ class Map{
     }
 
     public function add($method, $route, $resource){
-        if(!in_array($method, [self::METHOD_GET, self::METHOD_POST, self::METHOD_PUT, self::METHOD_DELETE]))
-            throw new Exception("Method not supported. Use 'METHOD_' class constants.");
-
         $route = trim($route, "/");
         $fragments = explode("/", $route);
         $parent = $this->nodes;
@@ -55,9 +50,6 @@ class Map{
     }
 
     public function match($method, $route){
-        if(!in_array($method, [self::METHOD_GET, self::METHOD_POST, self::METHOD_PUT, self::METHOD_DELETE]))
-            throw new Exception("Method not supported. Use 'METHOD_' class constants.");
-
         if(!is_array($route)){
             $route = trim($route, "/");
             $route = explode("/", $route);
