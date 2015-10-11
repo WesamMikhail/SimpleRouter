@@ -1,0 +1,17 @@
+{
+  "name" : "Lorenum/SimpleRouter",
+  "description" : "A simple router that will match an incoming request to the predefined controller/action.",
+  "license" : "MIT",
+  "authors": [
+    {
+      "name": "Wesam Mikhail",
+      "email": "wesam@lorenum.com",
+      "homepage" : "https://github.com/WesamMikhail"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Lorenum\\SimpleRouter\\" : "src/"
+    }
+  }
+}
