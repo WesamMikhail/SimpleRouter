@@ -49,6 +49,11 @@ class Map{
         $parent->addRoute($method, $resource);
     }
 
+    /**
+     * @param $method
+     * @param $route
+     * @return array|bool array if correct match found, true if endpoint found but not for METHOD, false if nothing was found
+     */
     public function match($method, $route){
         if(!is_array($route)){
             $route = trim($route, "/");
@@ -75,17 +80,22 @@ class Map{
             $node = $child;
         }
 
-        $route = $node->getRoute($method);
-
-        if($route !== false){
-            $route = explode("@", $route);
+        $routes = $node->getRoutes();
+        if(isset($routes[$method])){
+            $route = explode("@", $routes[$method]);
             $route = [
                 "controller" => $route[0],
                 "action" => $route[1],
                 "params" => $params
             ];
-        }
 
-        return $route;
+            return $route;
+        }
+        else if(count($routes) > 0){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 }
