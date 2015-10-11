@@ -13,7 +13,7 @@ if(is_readable('vendor/autoload.php'))
     require_once 'vendor/autoload.php';
 ```
 
-#### Use the library to define your routes. You can use ->post() or ->delete() or ->add(MAP::METHOD_PUT) etc.
+#### Use the library to define your routes
 
 ```
 use Lorenum\SimpleRouter\Map;
@@ -33,7 +33,7 @@ $map->add(MAP::METHOD_POST, "/article/:/summary",    "articleController@addsumma
 $match = $map->match(MAP::METHOD_POST, "/article/15/summary");
 ```
 
-$match will now contain
+**$match** will now contain
 
 ```
 Array
