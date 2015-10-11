@@ -1,20 +1,19 @@
 # SimpleRouter
-=========================
 
-This repository is actually made of two simple classes found in /src. Map and Node.
+This repository is actually made of two simple classes found in /src. **Map** and **Node**.
 Basically, you pre-define your routes to your map class and ask it to match incoming requests based on those pre-defined routes.
 If you would like to use RESTful URL arguments, this library allows for that. However, Regex is not currently supported.
 
 ## Step by Step:
 
-1. Run composer install and add this to your index.php
+#### Run composer install and add this to your index.php
 
 ```
 if(is_readable('vendor/autoload.php'))
     require_once 'vendor/autoload.php';
 ```
 
-2. Use the library to define your routes
+#### Use the library to define your routes. You can use ->post() or ->delete() or ->add(MAP::METHOD_PUT) etc.
 
 ```
 use Lorenum\SimpleRouter\Map;
@@ -28,7 +27,7 @@ $map->add(MAP::METHOD_PUT,  "/article/:/summary",    "articleController@summaryF
 $map->add(MAP::METHOD_POST, "/article/:/summary",    "articleController@addsummaryAction");
 ```
 
-3. Match with the incoming user request
+#### Match with the incoming user request
 
 ```
 $match = $map->match(MAP::METHOD_POST, "/article/15/summary");
