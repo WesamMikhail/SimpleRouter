@@ -1,6 +1,8 @@
 <?php
 namespace Lorenum\SimpleRouter;
 
+use Exception;
+
 class Map{
     const METHOD_GET = "GET";
     const METHOD_POST = "POST";
