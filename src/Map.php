@@ -70,6 +70,10 @@ class Map{
                 $route[0] = "/";
             }
         }
+        //If the route is left empty, we assume that it is ROOT
+        else if(empty($route)){
+            $route = ["/"];
+        }
 
         $node = $this->nodes;
         $params = [];
