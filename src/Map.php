@@ -64,6 +64,11 @@ class Map{
         if(!is_array($route)){
             $route = trim($route, "/");
             $route = explode("/", $route);
+
+            //Root is defined as / instead of empty space
+            if(count($route) === 1 && $route[0] == ""){
+                $route[0] = "/";
+            }
         }
 
         $node = $this->nodes;
