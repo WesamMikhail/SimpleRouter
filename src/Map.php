@@ -32,6 +32,12 @@ class Map{
     public function add($method, $route, $resource){
         $route = trim($route, "/");
         $fragments = explode("/", $route);
+
+        //Root is defined as / instead of empty space
+        if(count($fragments) === 1 && $fragments[0] == ""){
+            $fragments[0] = "/";
+        }
+
         $parent = $this->nodes;
 
         foreach($fragments as $piece){
