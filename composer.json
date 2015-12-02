@@ -1,5 +1,5 @@
 {
-  "name" : "Lorenum/SimpleRouter",
+  "name" : "lorenum/simplerouter",
   "description" : "A simple router that will match an incoming request to the predefined controller/action.",
   "license" : "MIT",
   "authors": [
